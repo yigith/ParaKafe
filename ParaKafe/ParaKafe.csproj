@@ -74,6 +74,7 @@
     </Compile>
     <EmbeddedResource Include="AnaForm.resx">
       <DependentUpon>AnaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GecmisSiparislerForm.resx">
       <DependentUpon>GecmisSiparislerForm.cs</DependentUpon>
@@ -105,6 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ParaKafe.Data\ParaKafe.Data.csproj">
+      <Project>{64e34d15-ab91-4d8e-a2e2-a3eba2433d5b}</Project>
+      <Name>ParaKafe.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
