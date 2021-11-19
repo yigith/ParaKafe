@@ -40,7 +40,7 @@ namespace ParaKafe
 
         private void MasaNoyuGuncelle()
         {
-            Text = $"Masa {siparis.MasaNo}";
+            Text = $"Masa {siparis.MasaNo} (Açılış: {siparis.AcilisZamani})";
             lblMasaNo.Text = siparis.MasaNo.ToString("00");
             int[] doluMasalar = db.AktifSiparisler.Select(x => x.MasaNo).ToArray();
             cboMasaNo.DataSource = Enumerable
