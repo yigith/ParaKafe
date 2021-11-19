@@ -56,10 +56,20 @@ namespace ParaKafe
             }
 
             SiparisForm sf = new SiparisForm(siparis, db);
+            sf.MasaTasindi += Sf_MasaTasindi;
             sf.ShowDialog();
 
             if (siparis.Durum != SiparisDurum.Aktif)
                 lvi.ImageKey = "bos";
+        }
+
+        private void Sf_MasaTasindi(object sender, MasaTasindiEventArgs e)
+        {
+            foreach (ListViewItem lvi in lvwMasalar.Items)
+            {
+                if ((int)lvi.Tag == e.EskiMasaNo) lvi.ImageKey = "bos";
+                if ((int)lvi.Tag == e.YeniMasaNo) lvi.ImageKey = "dolu";
+            }
         }
 
         private void tsmiGecmisSiparisler_Click(object sender, EventArgs e)

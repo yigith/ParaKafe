@@ -1,12 +1,15 @@
 ﻿using ParaKafe.Data;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ParaKafe
 {
     public partial class SiparisForm : Form
     {
+        public event EventHandler<MasaTasindiEventArgs> MasaTasindi;
+
         private readonly Siparis siparis;
         private readonly KafeVeri db;
         private readonly BindingList<SiparisDetay> blDetaylar;
@@ -39,6 +42,11 @@ namespace ParaKafe
         {
             Text = $"Masa {siparis.MasaNo}";
             lblMasaNo.Text = siparis.MasaNo.ToString("00");
+            int[] doluMasalar = db.AktifSiparisler.Select(x => x.MasaNo).ToArray();
+            cboMasaNo.DataSource = Enumerable
+                .Range(1, db.MasaAdet)
+                .Where(x => !doluMasalar.Contains(x))
+                .ToList();
         }
 
         private void UrunleriListele()
@@ -79,6 +87,18 @@ namespace ParaKafe
             db.AktifSiparisler.Remove(siparis);
             db.GecmisSiparisler.Add(siparis);
             Close();
+        }
+
+        private void btnMasaTasi_Click(object sender, EventArgs e)
+        {
+            if (cboMasaNo.SelectedIndex == -1) return;
+
+            int eskiMasaNo = siparis.MasaNo;
+            int hedefMasaNo = (int)cboMasaNo.SelectedItem;
+            siparis.MasaNo = hedefMasaNo;
+            MasaNoyuGuncelle();
+            if (MasaTasindi != null)
+                MasaTasindi(this, new MasaTasindiEventArgs(eskiMasaNo, hedefMasaNo));
         }
     }
 }

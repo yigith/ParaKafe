@@ -66,7 +66,7 @@ namespace ParaKafe
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(238, 8);
+            this.label2.Location = new System.Drawing.Point(294, 8);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 24);
@@ -127,7 +127,7 @@ namespace ParaKafe
             this.cboUrun.Location = new System.Drawing.Point(11, 35);
             this.cboUrun.Margin = new System.Windows.Forms.Padding(2);
             this.cboUrun.Name = "cboUrun";
-            this.cboUrun.Size = new System.Drawing.Size(227, 32);
+            this.cboUrun.Size = new System.Drawing.Size(283, 32);
             this.cboUrun.TabIndex = 2;
             // 
             // cboMasaNo
@@ -143,7 +143,7 @@ namespace ParaKafe
             // 
             // nudAdet
             // 
-            this.nudAdet.Location = new System.Drawing.Point(242, 36);
+            this.nudAdet.Location = new System.Drawing.Point(298, 36);
             this.nudAdet.Margin = new System.Windows.Forms.Padding(2);
             this.nudAdet.Maximum = new decimal(new int[] {
             999,
@@ -167,7 +167,7 @@ namespace ParaKafe
             // btnEkle
             // 
             this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(318, 35);
+            this.btnEkle.Location = new System.Drawing.Point(374, 35);
             this.btnEkle.Margin = new System.Windows.Forms.Padding(2);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(75, 33);
@@ -187,6 +187,7 @@ namespace ParaKafe
             this.btnMasaTasi.TabIndex = 8;
             this.btnMasaTasi.Text = "TAŞI";
             this.btnMasaTasi.UseVisualStyleBackColor = true;
+            this.btnMasaTasi.Click += new System.EventHandler(this.btnMasaTasi_Click);
             // 
             // btnSiparisIptal
             // 
